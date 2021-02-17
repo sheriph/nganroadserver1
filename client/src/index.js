@@ -6,12 +6,26 @@ import reportWebVitals from "./reportWebVitals";
 import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#5449de",
+    },
+    secondary: {
+      main: "#51e5a5",
+    },
+  },
+});
 
 ReactDOM.render(
   <BrowserRouter forceRefresh={true}>
     <RecoilRoot>
       <SnackbarProvider maxSnack={3}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </SnackbarProvider>
     </RecoilRoot>
   </BrowserRouter>,
