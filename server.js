@@ -1,15 +1,12 @@
 const express = require("express");
 const mysql = require("mysql");
-const path = require('path');
+const path = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 
-
-
-
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 // create a GET route
 app.get("/express_backend", (req, res) => {
