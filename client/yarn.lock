@@ -5914,6 +5914,11 @@
   "resolved" "https://registry.yarnpkg.com/iferr/-/iferr-0.1.5.tgz"
   "version" "0.1.5"
 
+"iframe-resizer@^4.3.1":
+  "integrity" "sha512-PkoTPNF6EYhTbDjogdKu7JVgKqRwwNBXMeywZaQyzEYM3BNltA8O9fIIrtUkmj+8VZGckXpwtXsWsaQ5lrhd0w=="
+  "resolved" "https://registry.npmjs.org/iframe-resizer/-/iframe-resizer-4.3.1.tgz"
+  "version" "4.3.1"
+
 "ignore@^4.0.6":
   "integrity" "sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg=="
   "resolved" "https://registry.yarnpkg.com/ignore/-/ignore-4.0.6.tgz"

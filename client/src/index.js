@@ -7,6 +7,7 @@ import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+//import "../src/js/iframeResizer.contentWindow.min"
 
 const theme = createMuiTheme({
   palette: {
