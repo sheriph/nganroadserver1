@@ -3,16 +3,23 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/homepage";
 import "./App.css";
 import ResultPage from "./pages/resultpage";
-import { Container, Divider } from "@material-ui/core";
+import { Container, Divider, makeStyles } from "@material-ui/core";
 import CustomStepper from "./components/customstepper";
 import Details from "./pages/details";
 
+const styles = makeStyles((theme) => ({
+  root: {
+//    backgroundColor: theme.palette.primary.main,
+  },
+}));
+
 const App = () => {
+  const classes = styles();
   useEffect(() => {
     const script = document.createElement("script");
 
     script.src =
-      "http://naijagoingabroad.com/js/iframeResizer.contentWindow.min.js";
+      "https://naijagoingabroad.com/js/iframeResizer.contentWindow.min.js";
     script.async = true;
 
     document.body.appendChild(script);
@@ -22,10 +29,9 @@ const App = () => {
     };
   }, []);
   return (
-    <div style={{ backgroundColor: "#efefef" }}>
-      <Container>
+    <Container disableGutters className={classes.root}>
+      <Container disableGutters className={classes.root}>
         <CustomStepper />
-        <Divider style={{ margin: "10px 0 10px 0" }} />
       </Container>
       <Switch>
         <Route path="/details">
@@ -38,7 +44,7 @@ const App = () => {
           <HomePage />
         </Route>
       </Switch>
-    </div>
+    </Container>
   );
 };
 

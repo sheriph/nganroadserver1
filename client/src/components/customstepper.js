@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
   },
   stepper: {
     padding: "0",
-    backgroundColor: "#efefef",
+    backgroundColor: theme.palette.primary.main,
+  //  opacity: "0",
   },
 }));
 
@@ -53,7 +54,7 @@ export default function CustomStepper() {
       case 0:
         return (
           <SettingsOutlined
-            color={activeStep === index ? "primary" : "disabled"}
+            color={activeStep === index ? "secondary" : "disabled"}
             fontSize="large"
           />
         );
