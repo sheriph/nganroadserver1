@@ -2,6 +2,7 @@ import {
   Collapse,
   Container,
   Grid,
+  makeStyles,
   Typography,
 } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
@@ -14,10 +15,20 @@ import LinearBuffer from "../components/bufferprogress";
 import ResultCard from "../components/resultcard";
 import SearchForm from "../components/searchform";
 
+const styles = makeStyles((theme) => ({
+  background: {
+    backgroundColor: theme.palette.primary.main,
+  },
+  grey: {
+    backgroundColor: theme.palette.grey[300],
+  },
+}));
+
 const ResultPage = () => {
   // const [data, setData] = useState([1, 2, 3]);
   const history = useHistory();
   const location = useLocation();
+  const classes = styles();
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const [country, setcountry] = useState(null);
@@ -134,11 +145,27 @@ const ResultPage = () => {
   };
 
   return (
-    <Container style={{ backgroundColor: "#efefef" }}>
-      <Grid container justify="center">
+    <Container disableGutters>
+      <Grid
+        className={classes.background}
+        container
+        component={Container}
+        style={{
+          margin: "-1px 0 0px 0",
+          paddingTop: "30px",
+          paddingBottom: "30px",
+        }}
+      >
         <Grid item>
           <SearchForm setcountry={country} setfield={field} setlevel={level} />
         </Grid>
+      </Grid>
+      <Grid
+        container
+        justify="center"
+        component={Container}
+        className={classes.grey}
+      >
         {results.length === 0 ? (
           <Container>
             <Grid

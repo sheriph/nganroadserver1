@@ -1,4 +1,10 @@
-import { Container, Grid, Paper, Typography } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  makeStyles,
+  Paper,
+  Typography,
+} from "@material-ui/core";
 import {
   AccessTimeOutlined,
   BookmarkBorderOutlined,
@@ -13,7 +19,17 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import AvatarList from "../components/avatarlist";
 
+const styles = makeStyles((theme) => ({
+  background: {
+    background: theme.palette.primary.main,
+  },
+  grey: {
+    background: theme.palette.grey[300],
+  },
+}));
+
 const Details = () => {
+  const classes = styles();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const location = useLocation();
   const history = useHistory();
@@ -61,8 +77,18 @@ const Details = () => {
     type,
   } = details;
   return (
-    <Container>
-      <Grid container justify="center" style={{ margin: "10px 0 10px 0" }}>
+    <Container disableGutters>
+      <Grid
+        component={Container}
+        className={classes.background}
+        container
+        justify="center"
+        style={{
+          margin: "-1px 0 0px 0",
+          paddingTop: "30px",
+          paddingBottom: "30px",
+        }}
+      >
         <Grid item component={Paper}>
           <AvatarList
             primaryText={title}
@@ -73,88 +99,147 @@ const Details = () => {
           />
         </Grid>
       </Grid>
-      <Grid container component={Paper} style={{ margin: "10px 0 10px 0" }}>
+      <Grid
+        container
+        className={classes.grey}
+        component={Container}
+        style={{ paddingTop: "30px", paddingBottom: "30px" }}
+      >
         {department && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <AvatarList
               primaryText={department}
               secondaryText="Department"
-              listChildren={<HomeWorkOutlined fontSize="small" />}
+              listChildren={
+                <HomeWorkOutlined color="primary" fontSize="small" />
+              }
               avatarStyle={{
                 width: "30px",
                 height: "30px",
                 marginRight: "5px",
+                backgroundColor: "white",
               }}
             />
           </Grid>
         )}
         {duration && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <AvatarList
               primaryText={duration}
               secondaryText="Duration of Study"
-              listChildren={<AccessTimeOutlined fontSize="small" />}
+              listChildren={
+                <AccessTimeOutlined color="primary" fontSize="small" />
+              }
               avatarStyle={{
                 width: "30px",
                 height: "30px",
                 marginRight: "5px",
+                backgroundColor: "white",
               }}
             />
           </Grid>
         )}
         {type && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <AvatarList
               primaryText={type}
               secondaryText="Level of Study"
-              listChildren={<BookmarkBorderOutlined fontSize="small" />}
+              listChildren={
+                <BookmarkBorderOutlined color="primary" fontSize="small" />
+              }
               avatarStyle={{
                 width: "30px",
                 height: "30px",
                 marginRight: "5px",
+                backgroundColor: "white",
               }}
             />
           </Grid>
         )}
         {place && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <AvatarList
               primaryText={place}
               secondaryText="Place of Study"
-              listChildren={<LocationOnOutlined fontSize="small" />}
+              listChildren={
+                <LocationOnOutlined color="primary" fontSize="small" />
+              }
               avatarStyle={{
                 width: "30px",
                 height: "30px",
                 marginRight: "5px",
+                backgroundColor: "white",
               }}
             />
           </Grid>
         )}
         {mode && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <AvatarList
               primaryText={mode}
               secondaryText="Mode of Study"
-              listChildren={<LanguageOutlined fontSize="small" />}
+              listChildren={
+                <LanguageOutlined color="primary" fontSize="small" />
+              }
               avatarStyle={{
                 width: "30px",
                 height: "30px",
                 marginRight: "5px",
+                backgroundColor: "white",
               }}
             />
           </Grid>
         )}
         {program_url && (
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            component={Paper}
+            style={{ marginTop: "10px", marginBottom: "10px" }}
+          >
             <a target="_blank" rel="noreferrer" href={program_url}>
               <AvatarList
                 primaryText="Official Website"
                 secondaryText="Click here"
-                listChildren={<LanguageOutlined fontSize="small" />}
+                listChildren={
+                  <LanguageOutlined color="primary" fontSize="small" />
+                }
                 avatarStyle={{
                   width: "30px",
                   height: "30px",
                   marginRight: "5px",
+                  backgroundColor: "white",
                 }}
               />
             </a>
@@ -164,13 +249,11 @@ const Details = () => {
       {description && (
         <Grid
           container
-          component={Paper}
+          component={Container}
           style={{ margin: "10px 0 10px 0", padding: "10px" }}
         >
           <Grid item xs={12}>
             <Typography align="center">Program Description</Typography>
-          </Grid>
-          <Grid item>
             <div dangerouslySetInnerHTML={{ __html: description }} />
           </Grid>
         </Grid>
@@ -178,7 +261,7 @@ const Details = () => {
       {content && (
         <Grid
           container
-          component={Paper}
+          component={Container}
           style={{ margin: "10px 0 10px 0", padding: "10px" }}
         >
           <Grid item xs={12}>
@@ -192,7 +275,7 @@ const Details = () => {
       {tuition && (
         <Grid
           container
-          component={Paper}
+          component={Container}
           style={{ margin: "10px 0 10px 0", padding: "10px" }}
         >
           <Grid item xs={12}>
@@ -206,7 +289,7 @@ const Details = () => {
       {admission_requirement && (
         <Grid
           container
-          component={Paper}
+          component={Container}
           style={{ margin: "10px 0 30px 0", padding: "10px" }}
         >
           <Grid item xs={12}>

@@ -61,14 +61,14 @@ export default function CustomStepper() {
       case 1:
         return (
           <ViewDayOutlined
-            color={activeStep === index ? "primary" : "disabled"}
+            color={activeStep === index ? "secondary" : "disabled"}
             fontSize="large"
           />
         );
       case 2:
         return (
           <SchoolOutlined
-            color={activeStep === index ? "primary" : "disabled"}
+            color={activeStep === index ? "secondary" : "disabled"}
             fontSize="large"
           />
         );
