@@ -18,9 +18,8 @@ const App = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.type = "text/javascript";
-    script.src =
-      "https://naijagoingabroad.com/js/iframeResizer.contentWindow.min.js";
-   // script.async = true;
+    script.src = "../js/iframeResizer.contentWindow.min.js";
+    // script.async = true;
     document.body.appendChild(script);
     return () => {
       document.body.removeChild(script);
