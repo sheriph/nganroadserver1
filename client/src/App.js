@@ -9,7 +9,7 @@ import Details from "./pages/details";
 
 const styles = makeStyles((theme) => ({
   root: {
-//    backgroundColor: theme.palette.primary.main,
+    //    backgroundColor: theme.palette.primary.main,
   },
 }));
 
@@ -17,6 +17,7 @@ const App = () => {
   const classes = styles();
   useEffect(() => {
     const script = document.createElement("script");
+    script.type = "text/javascript";
 
     script.src =
       "https://naijagoingabroad.com/js/iframeResizer.contentWindow.min.js";
