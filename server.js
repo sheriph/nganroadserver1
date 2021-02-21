@@ -14,7 +14,7 @@ app.get('*', (req, res) => {
 
 // create a GET route
 app.get("/express_backend", (req, res) => {
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
+  res.send({ express: "YOUR EXPRESS BACKEND IS FULLY FUNCTIONAL!! CONGRATS" });
 });
 
 app.post("/canadaschoools", (req, res) => {
